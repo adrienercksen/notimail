@@ -59,7 +59,7 @@ class ApiController extends AbstractController
     /* ===============================================================================================================
     ||  [GET] {url}/api/usernames --> Renvoie la liste des noms d'utilisateurs                                      ||
     =============================================================================================================== */
-    #[Route('/users', name: 'list', methods:['get'] )]
+    #[Route('/usernames', name: 'name_list', methods:['get'] )]
     public function nameList(ManagerRegistry $doctrine, Request $request): JsonResponse {
         try {
             $this->authorize($doctrine,$request,true);
