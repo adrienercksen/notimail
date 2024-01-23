@@ -3,3 +3,13 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+app_auth_token:
+    path:           /
+    controller:     App\Controller\AuthTokenController::login
+    methods:        GET
+
+api_list:
+    path:           /api/users
+    controller:     App\Controller\ApiController::index
+    methods:        GET

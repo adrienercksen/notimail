@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <div>
+            <div>
+                <span>Nouveau courrier<span>
+            </div>
+
+            <div class="main">
+                Bonjour <span>{{ user.firmName }}</span>,
+
+                Vous avez reçu du courrier. Vous pouvez aller le récupérer à votre boîte aux lettres.
+
+                Merci d'utiliser nos services et à bientôt !
+            </div>
+
+            <div class="footbar">
+                <div>
+                </div>
+            </div>
+        </div>
+        
+        
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,37 @@
+{% apply inky_to_html | inline_css(source('@styles/foundation-emails.css')) %}
+    <style>
+        .signature-heading {
+            font-weight: bold;
+            color: #b42912;
+        }
+
+        .padded {
+            margin-top: 40px;
+        }
+    </style>
+    <container>
+        <row>
+            <columns>
+                <div class="padded">
+                    {% for paragraph in paragraphs %}
+                        <p>{{ paragraph }}</p>
+                    {% endfor %}
+                </div>
+            </columns>
+        </row>
+        <row>
+            <columns small="12" large="3" class="large-offset-1">
+                <img class="small-float-center" src="https://get.foundation/emails/docs/assets/img/inky-class.png"
+                     alt="please don't forget me">
+            </columns>
+            <columns small="12" large="8">
+                <h4 class="small-text-center signature-heading">What is the deal?</h4>
+                <p class="small-text-center" style="color: #1b9448">
+                    Use Foundation for Emails to design responsive HTML
+                    emails that work in any email client. Learn more
+                    <a href="https://get.foundation/emails/docs/index.html">here</a>
+                </p>
+            </columns>
+        </row>
+    </container>
+{% endapply %}

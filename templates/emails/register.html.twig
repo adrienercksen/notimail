@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <div>
+            <div>
+                <span>Votre compte NotiMail<span>
+            </div>
+
+            <div class="main">
+                Bonjour,
+
+                Un compte NotiMail vient d'être créé au nom de votre entreprise, <span>{{ user.firmName }}</span>.
+
+                Vos identifiants pour y accéder sont les suivants :
+                <div>
+                    Identifiant de connexion : <span>{{ user.email }}</span>
+                    Mot de passe : <span>{{ password }}</span>
+                </div>
+
+                Veillez à bien les noter. En cas de perte, seul un administrateur pourra vous aider à accéder à votre compte.
+
+                Merci d'utiliser nos services et à bientôt !
+            </div>
+
+            <div class="footbar">
+                <div>
+                </div>
+            </div>
+        </div>
+        
+        
+        {% endblock %}
+    </body>
+</html>
