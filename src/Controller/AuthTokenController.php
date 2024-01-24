@@ -86,9 +86,12 @@ class AuthTokenController extends AbstractController
         return $this->json('Vous êtes déconnecté.e.');
     }
 
-    // invalide tous les jetons en cours de validité pour un utilisateur lors d'un changement de mot de passe
+    // invalide tous les jetons en cours de validité pour un utilisateur lors d'un changement de mot de passe ou suppression
     public function disconnectByUser($doctrine, $userId) {
-
+        $tokens = $doctrine->getRepository(AuthToken::class)->findBy(array('user_id' => $userId));
+        foreach ($tokens as $token) {
+            $this->delete($doctrine,$token);
+        }
     }
 
     // vérifie si la requête est valide

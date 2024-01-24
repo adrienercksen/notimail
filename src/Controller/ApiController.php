@@ -313,12 +313,15 @@ class ApiController extends AbstractController
         }
 
         $others = new Others();
+        $atc = new AuthTokenController();
         $entityManager = $doctrine->getManager();
         try {
             $user = $others->find_user($doctrine, $arg);
             if (gettype($user) == 'string') {throw new \Exception($user);}
         }
         catch(\Exception $e) {return $this->errorReturn($e);}
+
+        $atc->disconnectByUser($doctrine,$user->getId());
         
         // ...on le supprime de la base de données
         $entityManager->remove($user);
